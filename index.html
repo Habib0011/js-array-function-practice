@@ -6,9 +6,43 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>js practise</title>
 </head>
+<style>
+    button {
+        background-color: tomato;
+        color: white;
+        border-radius: 5px;
+        padding: 10px;
+        border: 2px solid tomato;
+
+    }
+
+    button:hover {
+        background-color: transparent;
+        color: tomato;
+    }
+</style>
 
 <body>
     <h1>js practise</h1>
+    <h2>h2 tag</h2>
+    <button>click</button>
+    <script>
+        let h1 = document.querySelector("h1")
+
+        console.log(h1)
+
+        let button = document.querySelector("button")
+        console.log(button)
+        button.addEventListener("dblclick", () => {
+            h1.innerText = "whats up"
+            h1.style.color = "silver"
+            h1.style.backgroundColor = "red"
+        })
+
+
+
+
+    </script>
 
     <script src="index.js"></script>
 </body>

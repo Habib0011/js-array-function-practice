@@ -56,3 +56,23 @@ let names = ['habib', 'labib', 'shabib', 'nabib'];
 // console.log(names[2])
 let doubleArray = [[1, 2, 3], [4, 5, 6]];
 console.log(doubleArray[0][1])
+
+let students = {
+    "name his": "habib",
+    "age": 27,
+    "phone":0188555
+}
+console.log(students.phone)
+console.log(students["name his"])
+console.log(students["age"])
+
+let five = {
+
+}
+
+five.name = "habib";
+five.age = 28;
+five.ph = "015558"
+console.log(five)
+
+
