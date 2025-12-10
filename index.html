@@ -9,24 +9,21 @@
         body {
             margin: 0;
             padding: 0;
-        }
-
-        .container {
             background-image: url(back.jpg);
             width: 100%;
             height: 100vh;
 
+
         }
+
+
 
         .container-input {
             text-align: center;
-            position: relative;
-            top: 10px;
+
         }
 
         .container-input input {
-            position: relative;
-            top: 2px;
             padding: 8px;
             border-radius: 8px;
             font-size: 20px;
@@ -69,8 +66,11 @@
 </head>
 
 <body>
+
     <div class="container">
+        <h2 style="text-align: center; color: white; font-size: 40px; font-weight: 700;">Daily Task</h2>
         <div class="container-input">
+
             <div>
                 <input type="text" placeholder="write your task" id="inputId">
                 <button class="taskBtn">Add Task</button>
@@ -93,6 +93,7 @@
             const li = document.createElement("li")
             li.innerHTML = `${inputValue} <button class=dlt-btn> Delete </button>`
             taskList.appendChild(li)
+            inputField.value = ""
         })
     </script>
 
