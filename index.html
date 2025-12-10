@@ -6,45 +6,65 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>js practise</title>
 </head>
-<style>
-    button {
-        background-color: tomato;
-        color: white;
-        border-radius: 5px;
-        padding: 10px;
-        border: 2px solid tomato;
 
-    }
 
-    button:hover {
-        background-color: transparent;
-        color: tomato;
-    }
-</style>
 
 <body>
-    <h1>js practise</h1>
-    <h2>h2 tag</h2>
-    <button>click</button>
+
+    <h2
+        style="text-align: center; color: rgb(82, 58, 12); font-size: 50px; font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;">
+        Daily task list</h2>
+
+    <div class="container">
+        <div class="task-container">
+            <div class="input-and-btn">
+                <input type="text" placeholder="task" id="task-input">
+                <button class="btn">ADD TASK</button>
+            </div>
+
+        </div>
+        <ul class="task-list">
+
+        </ul>
+    </div>
+
     <script>
-        let h1 = document.querySelector("h1")
+        const inputTextFiled = document.getElementById("task-input")
+        const btn = document.querySelector(".btn")
+        const taskList = document.querySelector(".task-list")
 
-        console.log(h1)
+        btn.addEventListener("click", () => {
+            const li = document.createElement("li")
+            const inputText = inputTextFiled.value.trim()
 
-        let button = document.querySelector("button")
-        console.log(button)
-        button.addEventListener("dblclick", () => {
-            h1.innerText = "whats up"
-            h1.style.color = "silver"
-            h1.style.backgroundColor = "red"
+            if (inputText === "") {
+                alert("please write something")
+            }
+            else {
+                console.log(inputText)
+                li.innerHTML = `${inputText} <button class=delete-btn> delete </button>`
+                console.log(li)
+                taskList.appendChild(li)
+                inputTextFiled.value = ""
+            }
+            const dltBtn = li.querySelector(".delete-btn")
+            dltBtn.addEventListener("click", () => {
+                const isConfirm = confirm("sure delete")
+                if (isConfirm === true) {
+                    li.remove()
+                }
+            })
         })
 
-
-
-
+        inputTextFiled.addEventListener("keypress", (e) => {
+            if (e.key === "Enter") {
+                btn.click()
+            }
+        })
     </script>
 
-    <script src="index.js"></script>
+
+
 </body>
 
 </html>
