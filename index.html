@@ -4,66 +4,97 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>js practise</title>
+    <title>Task manager</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            background-image: url(back.jpg);
+            width: 100%;
+            height: 100vh;
+
+        }
+
+        .container-input {
+            text-align: center;
+            position: relative;
+            top: 10px;
+        }
+
+        .container-input input {
+            position: relative;
+            top: 2px;
+            padding: 8px;
+            border-radius: 8px;
+            font-size: 20px;
+        }
+
+        .container-input button {
+            padding: 10px;
+            border-radius: 8px;
+            cursor: pointer;
+            border: 4px solid rgb(2, 2, 129);
+
+        }
+
+        .container-input button:hover {
+            background-color: transparent;
+            color: white;
+        }
+
+        .task-list {
+            list-style: none;
+            font-size: 24px;
+            font-weight: 900;
+            color: white;
+            list-style-type: decimal;
+            box-shadow: 4px;
+
+
+
+        }
+
+        .dlt-btn {
+            padding: 6px;
+            border-radius: 8px;
+            cursor: pointer;
+            background-color: red;
+            border: 3px solid darkred;
+            color: white;
+        }
+    </style>
 </head>
 
-
-
 <body>
-
-    <h2
-        style="text-align: center; color: rgb(82, 58, 12); font-size: 50px; font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;">
-        Daily task list</h2>
-
     <div class="container">
-        <div class="task-container">
-            <div class="input-and-btn">
-                <input type="text" placeholder="task" id="task-input">
-                <button class="btn">ADD TASK</button>
+        <div class="container-input">
+            <div>
+                <input type="text" placeholder="write your task" id="inputId">
+                <button class="taskBtn">Add Task</button>
             </div>
-
         </div>
         <ul class="task-list">
 
         </ul>
+
     </div>
 
     <script>
-        const inputTextFiled = document.getElementById("task-input")
-        const btn = document.querySelector(".btn")
+        const inputField = document.getElementById("inputId")
+        const btn = document.querySelector(".taskBtn")
         const taskList = document.querySelector(".task-list")
 
         btn.addEventListener("click", () => {
+            const inputValue = inputField.value
+            console.log(inputValue)
             const li = document.createElement("li")
-            const inputText = inputTextFiled.value.trim()
-
-            if (inputText === "") {
-                alert("please write something")
-            }
-            else {
-                console.log(inputText)
-                li.innerHTML = `${inputText} <button class=delete-btn> delete </button>`
-                console.log(li)
-                taskList.appendChild(li)
-                inputTextFiled.value = ""
-            }
-            const dltBtn = li.querySelector(".delete-btn")
-            dltBtn.addEventListener("click", () => {
-                const isConfirm = confirm("sure delete")
-                if (isConfirm === true) {
-                    li.remove()
-                }
-            })
-        })
-
-        inputTextFiled.addEventListener("keypress", (e) => {
-            if (e.key === "Enter") {
-                btn.click()
-            }
+            li.innerHTML = `${inputValue} <button class=dlt-btn> Delete </button>`
+            taskList.appendChild(li)
         })
     </script>
-
-
 
 </body>
 
