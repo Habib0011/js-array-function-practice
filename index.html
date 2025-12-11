@@ -11,7 +11,8 @@
             padding: 0;
             background-image: url(back.jpg);
             width: 100%;
-            height: 100vh;
+            background-size: cover;
+            /* height: 100vh; */
 
 
         }
@@ -89,11 +90,34 @@
 
         btn.addEventListener("click", () => {
             const inputValue = inputField.value
-            console.log(inputValue)
-            const li = document.createElement("li")
-            li.innerHTML = `${inputValue} <button class=dlt-btn> Delete </button>`
-            taskList.appendChild(li)
-            inputField.value = ""
+            if (inputValue === "") {
+                alert("add task")
+            }
+            else {
+                console.log(inputValue)
+                const li = document.createElement("li")
+                li.innerHTML = `${inputValue} <button class=dlt-btn> Delete </button>`
+                taskList.appendChild(li)
+                inputField.value = ""
+
+                const dltBtn = li.querySelector(".dlt-btn")
+                dltBtn.addEventListener("click", () => {
+                    const isConfirm = confirm("confirm?")
+
+                    if (isConfirm) {
+                        li.remove()
+                    }
+
+                })
+            }
+
+
+        })
+
+        inputField.addEventListener("keypress", (e) => {
+            if (e.key === "Enter") {
+                btn.click()
+            }
         })
     </script>
 
